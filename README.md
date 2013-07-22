@@ -10,7 +10,7 @@ sfr-cdn -l login -k key ping
 
 sfr-cdn -l login -k key purgeByRegex zone regex
 
-sfr-cdn -l login -k key purgeByURL url
+sfr-cdn -l login -k key purgeByUrl url
 
 sfr-cdn -l login -k key prefetchByUrl url
 ```
@@ -25,7 +25,7 @@ cdn.ping(callback);
 
 cdn.purgeByRegex(zone, regex, callback);
 
-cdn.purgeByURL(url, callback);
+cdn.purgeByUrl(url, callback);
 
 cdn.prefetchByUrl(url, callback);
 ```

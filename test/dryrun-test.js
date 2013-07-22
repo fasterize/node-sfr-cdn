@@ -45,18 +45,18 @@ describe('CDN test without sending the request', function() {
     });
   });
 
-  describe('#purgeByURL', function() {
+  describe('#purgeByUrl', function() {
     it("should do a post request to the api", function (done) {
-      cdn.purgeByURL('http://url.com/path', function (reqObj, date) {
+      cdn.purgeByUrl('http://url.com/path', function (reqObj, date) {
         reqObj.should.eql({
           url: 'http://api.cdn/zone/',
           method: 'POST',
           auth: { user: 'login', pass: 'key' },
           json: {
             jsonrpc: '2.0',
-            method: 'purgeByURL',
+            method: 'purgeByUrl',
             params: { url: 'http://url.com/path' },
-            id: 'purgeByURL ' + date
+            id: 'purgeByUrl ' + date
           }
         });
         done();
