@@ -29,6 +29,7 @@ if (!program.login) return console.error('--login <login> required');
 if (!program.key) return console.error('--key <key> required');
 
 var command = program.args.shift();
+
 var params = program.args;
 params.push(function (err, res) {
   if (err) console.error("ERROR\n", util.inspect(err, true, null, true));
@@ -36,5 +37,11 @@ params.push(function (err, res) {
 });
 
 var cdn = new CDN(program.login, program.key);
+
+if (cdn[command] === undefined) {
+  console.error("  Unrecognized error");
+  program.outputHelp();
+  return 0;
+}
 
 cdn[command].apply(cdn, params);
