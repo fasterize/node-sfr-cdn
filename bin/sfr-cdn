@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+
+var fs = require('fs');
+var path = require('path');
+var util = require('util');
+var CDN = require('../lib/cdn');
+
+
+var packageConfig = fs.readFileSync(path.join(path.dirname(fs.realpathSync(process.argv[1])), '../package.json'));
+var buildVersion = JSON.parse(packageConfig).version;
+
+var program = require('commander');
+
+program
+  .version(buildVersion, '-v, --version')
+  .usage('[options] <commande> [params]')
+  .option('-l, --login <login>', 'login of the user')
+  .option('-k, --key <key>', 'API key given by SFR')
+  .parse(process.argv);
+
+// If no sensible data passed in just print help and exit
+if (program.args.length == 0) {
+  program.outputHelp();
+  return 0;
+}
+
+if (!program.login) return console.error('--login <login> required');
+if (!program.key) return console.error('--key <key> required');
+
+var command = program.args.shift();
+var params = program.args;
+params.push(function (err, res) {
+  if (err) console.error("ERROR\n", util.inspect(err, true, null, true));
+  if (res) console.log("SUCCESS\n", util.inspect(res, true, null, true));
+});
+
+var cdn = new CDN(program.login, program.key);
+
+cdn[command].apply(cdn, params);
