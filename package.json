@@ -1,0 +1,38 @@
+{
+  "name": "node-sfr-cdn",
+  "version": "0.0.2",
+  "description": "SFR CDN API wrapper for NodeJS",
+  "author": "Anthony Barré <a@fasterize.com> (http://github.com/abarre)",
+
+  "homepage": "http://github.com/fasterize/node-sfr-cdn",
+  "keywords": ["sfr", "api", "cdn"],
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fasterize/node-sfr-cdn.git"
+  },
+
+  "bugs": {
+    "url": "http://github.com/fasterize/node-sfr-cdn/issues"
+  },
+
+  "main": "lib/cdn.js",
+
+  "scripts": {
+    "test": "mocha -R spec test/"
+  },
+
+  "engines": {
+    "node": "0.8.25"
+  },
+
+  "dependencies": {
+    "request": "2.22.x"
+  },
+
+  "devDependencies": {
+    "nock": "0.21.x",
+    "mocha": "1.12.x",
+    "should": "1.2.x"
+  }
+}
