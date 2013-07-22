@@ -5,7 +5,7 @@ API of the SFR CDN
 
 ##Usage with the binary
 
-``
+```
 sfr-cdn -l login -k key ping
 
 sfr-cdn -l login -k key purgeByRegex zone regex
