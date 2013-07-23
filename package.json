@@ -1,5 +1,5 @@
 {
-  "name": "node-sfr-cdn",
+  "name": "sfr-cdn",
   "version": "1.0.0",
   "description": "SFR CDN API wrapper for NodeJS",
   "author": "Anthony Barré <a@fasterize.com> (http://github.com/abarre)",
